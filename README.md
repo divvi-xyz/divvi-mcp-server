@@ -1,97 +1,278 @@
-# typescript-app-starter
+# Divvi MCP Server
 
-A starter template for Valora TypeScript projects with best practices.
+A Model Context Protocol (MCP) server that enables AI assistants to automatically integrate the [@divvi/referral-sdk](https://github.com/divvi-xyz/divvi-referral-sdk) into JavaScript/TypeScript blockchain applications.
 
-## What's in the stack?
+## Overview
 
-- [TypeScript](https://www.typescriptlang.org/)
-- Unit testing with [Jest](https://jestjs.io)
-- Linting with [ESLint](https://eslint.org/), configured with [@valora/eslint-config-typescript](https://github.com/valora-inc/eslint-config-typescript)
-- Automatic code formating with [Prettier](https://prettier.io/), configured with [@valora/prettier-config](https://github.com/valora-inc/prettier-config)
-- Scripts using [ShellJS](https://github.com/shelljs/shelljs)
-  - Linted and statically checked with [TypeScript](https://www.typescriptlang.org/)
-- CI/CD with [GitHub Actions](https://docs.github.com/en/actions)
-  - Semantic PR title enforcement with [semantic-pull-request](https://github.com/amannn/action-semantic-pull-request)
-- Automated dependency updates with [Renovate](https://renovatebot.com/), configured with [valora-inc/renovate-config](https://github.com/valora-inc/renovate-config)
+Divvi is an on-chain reward protocol that enables decentralized applications to implement referral systems with blockchain transaction attribution. This MCP server provides AI assistants with the capability to automatically integrate Divvi's referral tracking into existing dApps.
 
-## How to use this?
+**Compatible with any JavaScript/TypeScript blockchain application**, including:
 
-Above the file list, click the big green button: `Use this template`.
+- **Frontend frameworks**: React, Next.js, Vue, Angular, Svelte, vanilla JavaScript
+- **Backend applications**: Node.js, Express, Fastify, serverless functions
+- **Full-stack frameworks**: Next.js, Nuxt, SvelteKit, Remix
+- **Desktop/mobile**: Electron, React Native, Ionic
+- **Any JS/TS app** that makes blockchain transactions
 
-Or using [GitHub CLI](https://cli.github.com/):
+The server provides a single MCP tool (`integrate_divvi_referral_sdk`) that:
 
-```sh
-gh repo create --template valora-inc/typescript-app-starter valora-inc/new-repo
+1. **📖 Guides AI agents** to read the latest official Divvi SDK documentation
+2. **🔍 Instructs project analysis** to understand the target application structure
+3. **🔧 Provides integration parameters** (consumer address and provider campaigns)
+4. **✅ Ensures proper implementation** following official patterns and best practices
+
+## Usage
+
+> **⚠️ Prerequisites**: Before using this tool, you need to install and configure the MCP server. See the [Installation](#installation) section below.
+
+### Simple Integration
+
+The easiest way to use this is to simply ask your AI assistant:
+
+```
+"Integrate this dapp with Divvi"
 ```
 
-## Structure
+Your AI assistant will guide you through providing the necessary configuration (your Divvi dapp address and campaign addresses) and handle the entire integration process.
 
-Here's the recommended structure:
+### Detailed Integration
 
-- [`src`](src): source code
-  - [`index.ts`](src/index.ts): example source file
-  - [`index.test.ts`](src/index.test.ts): unit tests for `index.ts`
-- [`scripts`](scripts): more complex scripts in TypeScript
-  - [`example.ts`](scripts/example.ts): example script using [ShellJS](https://github.com/shelljs/shelljs)
+For more specific control, you can provide the exact parameters:
 
-## Type Checking
+```
+"Integrate my dapp with Divvi using consumer address 0x1234... and provider campaigns [0x5678..., 0x9abc...]"
+```
 
-This project uses [TypeScript](https://www.typescriptlang.org/). It's recommended to get TypeScript set up for your editor to get a really great in-editor experience with type checking and auto-complete. To run type checking across the whole project, run `yarn typecheck`.
+The AI assistant will:
 
-## Testing
+1. Read the latest Divvi SDK documentation
+2. Analyze your project structure
+3. Install the SDK if needed
+4. Modify your blockchain transactions to include referral tracking
+5. Add referral submission after transactions
 
-For lower level tests of utilities and individual modules, we use [Jest](https://jestjs.io).
+### Required Information
 
-## Test coverage checks
+To complete the integration, you'll need:
 
-### For private repos
+- **Consumer Address**: Your Divvi dapp wallet address (used to register on Divvi)
+- **Provider Campaigns**: Array of campaign addresses you've signed up for
 
-For private repos, Jest can be configured to terminate with an error status if there is less coverage than some configurable threshold.
-This project applies coverage thresholds for `yarn test:ci`, so CI checks will fail if there is insufficient test coverage.
+### Example Tool Call
 
-Make sure to add fixture data, mocks, or other files and file paths that you don't want to count towards your coverage thresholds
-to `coveragePathIgnorePatterns` in [`jest.config.js`](jest.config.js).
+```typescript
+// The AI assistant will call this internally
+integrate_divvi_referral_sdk({
+  consumerAddress: '0x1234567890123456789012345678901234567890',
+  providers: [
+    '0x5678901234567890123456789012345678901234',
+    '0x9abcdef012345678901234567890123456789012',
+  ],
+})
+```
 
-### For public repos
+## Key Features
 
-For public repos, [Codecov](https://codecov.io) is free. The tool offers two nice features that Jest doesn't offer out of the box:
+- **Always up-to-date**: Instructs AI agents to read documentation directly from the official repository
+- **Universal compatibility**: Works with React, Vue, Angular, Node.js, vanilla JS, and any JavaScript/TypeScript framework
+- **Blockchain library agnostic**: Supports viem, ethers, wagmi, and other Web3 libraries
+- **Non-prescriptive**: Provides guidance while letting AI agents use their own capabilities intelligently
+- **Future-proof**: Instructions adapt as the Divvi SDK evolves
 
-- "auto" coverage targets, which track the current coverage of the `main` branch. This lets you guarantee that test coverage increases over time.
-- "patch" coverage, counting only the lines modified by the current PR
+> **Technical Note**: This integration is implemented as an MCP "tool" rather than a "prompt" type. While the MCP specification includes a prompt type that would be more semantically appropriate for this use case, we chose the tool implementation for broader compatibility, as Cursor doesn't currently support MCP prompts.
 
-Here's how to set it up:
+## Installation
 
-Uncomment the `Upload Coverage Report` and `Upload coverage to Codecov` steps in [`workflow.yaml`](.github/workflows/workflow.yaml). No token is needed for public repos uploading via GitHub Actions.
+### Prerequisites
 
-If you set up Codecov, you may consider turning off Jest coverage checks for simplicity. You can do this by removing the
-`coverageThreshold` parameter from [`jest.config.js`](jest.config.js).
+- Node.js 22+
+- An MCP-compatible AI assistant (Claude Desktop, Cursor, Copilot, etc.)
 
-## Linting
+### Setup
 
-This project uses [ESLint](https://eslint.org/) for linting. That is configured in [`.eslintrc.js`](.eslintrc.js).
+1. **Clone the repository:**
 
-## Formatting
+   ```bash
+   git clone https://github.com/divvi-xyz/divvi-mcp.git
+   cd divvi-mcp
+   ```
 
-We use [Prettier](https://prettier.io) for auto-formatting. It's recommended to install an editor plugin (like the [VSCode Prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)) to get auto-formatting on save. There's also a `yarn format` script you can run to format all files in the project.
+2. **Install dependencies:**
 
-## Dependency / Unused Code Checking
+   ```bash
+   yarn install
+   ```
 
-This project uses [knip](https://github.com/webpro/knip) for checking both unused dependencies and code within the repo. This tool can catch a _lot_ of stuff, including unused dependencies, functions, types, unnecessary/duplicate exports, unused class/enum members, etc. It's configured in [`.knip.json`](.knip.json).
+3. **Build the server:**
+   ```bash
+   yarn build
+   ```
 
-## Scripts
+### Configure your AI assistant
 
-We use TypeScript instead of shell scripts. This is it to avoid the many pitfalls of shell scripts.
+Add the Divvi MCP server to your AI assistant's configuration:
 
-To run external commands we recommend using [ShellJS](https://github.com/shelljs/shelljs).
+#### Claude Desktop
 
-## GitHub Actions
+Add to your `claude_desktop_config.json`:
 
-We use [GitHub Actions](https://docs.github.com/en/actions) for continuous integration and deployment (CI/CD). Anything that gets into the `main` branch will be deployed using `yarn deploy` after running tests/build/etc.
+```json
+{
+  "mcpServers": {
+    "divvi-mcp": {
+      "command": "node",
+      "args": ["/path/to/divvi-mcp/dist/index.js"],
+      "env": {}
+    }
+  }
+}
+```
 
-Also, we use [semantic-pull-request](https://github.com/amannn/action-semantic-pull-request) to ensure PR titles match the [Conventional Commits spec](https://www.conventionalcommits.org/). It can be used in combination with [semantic-release](https://github.com/semantic-release/semantic-release) to automate releases and changelogs.
+#### Cursor
 
-[`workflow.yaml`](.github/workflows/workflow.yaml) contains a step to send slack notifications on deploy failures. For this to work, your repo needs to have access to the [MAINNET_SERVICE_ACCOUNT_KEY](https://github.com/organizations/valora-inc/settings/secrets/actions/MAINNET_SERVICE_ACCOUNT_KEY) github secret.
+Cursor supports MCP servers through its settings. Add the server configuration:
 
-## Renovate
+1. Open Cursor Settings (Cmd/Ctrl + ,)
+2. Navigate to "Features" → "Model Context Protocol"
+3. Add a new MCP server with:
+   - **Name**: `divvi-mcp`
+   - **Command**: `node`
+   - **Args**: `["/path/to/divvi-mcp/dist/index.js"]`
 
-[Renovate](https://renovatebot.com/) ensures our dependencies are kept up to date. It's configured with our shared config in [`renovate.json5`](renovate.json5).
+Alternatively, if Cursor uses a configuration file, add:
+
+```json
+{
+  "mcpServers": {
+    "divvi-mcp": {
+      "command": "node",
+      "args": ["/path/to/divvi-mcp/dist/index.js"]
+    }
+  }
+}
+```
+
+#### Other MCP Clients
+
+Configure according to your MCP client's documentation, pointing to the built server at `dist/index.js`.
+
+## How It Works
+
+### 1. Documentation-Driven Integration
+
+The tool instructs AI agents to read the official SDK documentation from:
+`https://raw.githubusercontent.com/divvi-xyz/divvi-referral-sdk/refs/heads/main/README.md`
+
+This ensures the integration always follows the latest patterns and examples.
+
+### 2. Project Analysis
+
+AI agents analyze the target project to understand:
+
+- Package manager (npm/yarn)
+- JavaScript/TypeScript framework being used
+- Blockchain libraries (viem, ethers, wagmi)
+- Existing transaction patterns
+- Account management approach
+
+### 3. SDK Integration
+
+Following the official documentation, AI agents implement:
+
+- SDK installation
+- Import statements
+- Transaction modifications (adding referral tags)
+- Referral submission after transactions
+- Proper error handling
+
+### 4. Validation
+
+The integration ensures:
+
+- All blockchain transactions include referral tracking
+- Referral failures don't break existing transaction flows
+- Code follows project conventions
+- Integration uses the provided addresses correctly
+
+## Development
+
+### Local Development
+
+```bash
+# Start in development mode
+yarn dev
+
+# Run tests
+yarn test
+
+# Type checking
+yarn typecheck
+
+# Linting
+yarn lint
+
+# Format code
+yarn format
+```
+
+### Project Structure
+
+```
+src/
+├── index.ts          # Main MCP server implementation
+├── index.test.ts     # Unit tests
+└── ...
+
+scripts/              # Build and utility scripts
+dist/                 # Compiled output
+```
+
+### Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/my-feature`
+3. Make your changes following the existing code style
+4. Add tests for new functionality
+5. Run the test suite: `yarn test`
+6. Submit a pull request
+
+## API Reference
+
+### Tool: `integrate_divvi_referral_sdk`
+
+Provides instructions for integrating the @divvi/referral-sdk into a project.
+
+#### Parameters
+
+| Parameter         | Type     | Required | Description                                   |
+| ----------------- | -------- | -------- | --------------------------------------------- |
+| `consumerAddress` | string   | Yes      | Your Divvi dapp wallet address                |
+| `providers`       | string[] | Yes      | Array of campaign addresses you signed up for |
+
+#### Returns
+
+Comprehensive integration instructions that guide AI agents through:
+
+- Reading official documentation
+- Analyzing project structure
+- Implementing the integration
+- Validating the result
+
+## Related Projects
+
+- **[@divvi/referral-sdk](https://github.com/divvi-xyz/divvi-referral-sdk)**: The core TypeScript SDK for Divvi integration
+- **[Divvi Protocol](https://github.com/divvi-xyz)**: The main Divvi ecosystem repositories
+
+## Support
+
+- **Documentation**: [Divvi SDK Docs](https://www.npmjs.com/package/@divvi/referral-sdk)
+- **Issues**: [GitHub Issues](https://github.com/divvi-xyz/divvi-mcp/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/divvi-xyz/divvi-mcp/discussions)
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Built with ❤️ for the Divvi ecosystem**

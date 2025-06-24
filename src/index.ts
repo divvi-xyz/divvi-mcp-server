@@ -8,34 +8,29 @@ const server = new FastMCP({
 
 server.addTool({
   name: 'integrate_divvi_referral_sdk',
-  description: `Provides instructions for integrating the @divvi/referral-sdk into a React/Next.js project with blockchain transactions.
+  description: `Provides instructions for integrating the @divvi/referral-sdk into JavaScript/TypeScript blockchain applications.
+
+Works with any JS/TS framework including React, Next.js, Vue, Angular, vanilla JavaScript, Node.js backends, and more.
 
 This tool returns instructions that guide the AI agent to read the latest documentation and implement the integration according to the official patterns and examples.`,
 
   parameters: z.object({
-    consumer_address: z
+    consumerAddress: z
       .string()
       .describe('Your Divvi dapp wallet address (used to register on Divvi)'),
     providers: z
       .array(z.string())
       .describe('Array of campaign addresses you signed up for'),
-    project_path: z
-      .string()
-      .optional()
-      .describe('Path to project root (defaults to current directory)'),
   }),
 
   execute: async (args) => {
-    const projectPath = args.project_path || '.'
-
     const instructions = `# Divvi Referral SDK Integration Task
 
 You need to integrate the @divvi/referral-sdk into a React/Next.js project to enable referral tracking.
 
 ## Your Integration Parameters:
-- **Consumer Address**: \`${args.consumer_address}\`
+- **Consumer Address**: \`${args.consumerAddress}\`
 - **Provider Campaigns**: ${JSON.stringify(args.providers, null, 2)}
-- **Project Path**: \`${projectPath}\`
 
 ## Step 1: Read the Official Documentation
 **IMPORTANT**: First, read the complete documentation to understand the current integration patterns:
@@ -59,7 +54,7 @@ Examine the project structure to understand:
 
 ## Step 3: Follow the Documentation
 Implement the integration exactly as described in the official documentation, using:
-- Your consumer address: \`${args.consumer_address}\`
+- Your consumer address: \`${args.consumerAddress}\`
 - Your providers: ${JSON.stringify(args.providers)}
 - The project's existing patterns and conventions
 
