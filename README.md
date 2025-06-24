@@ -1,6 +1,6 @@
 # Divvi MCP Server
 
-A Model Context Protocol (MCP) server that enables AI assistants to automatically integrate the [@divvi/referral-sdk](https://github.com/divvi-xyz/divvi-referral-sdk) into JavaScript/TypeScript blockchain applications.
+A Model Context Protocol (MCP) server that provides AI assistants with tools for working with the Divvi ecosystem. Currently focuses on automatic integration of the [@divvi/referral-sdk](https://github.com/divvi-xyz/divvi-referral-sdk) into JavaScript/TypeScript blockchain applications, with more Divvi-related functionality planned for future releases.
 
 ## Overview
 
@@ -14,7 +14,7 @@ Divvi is an on-chain reward protocol that enables decentralized applications to 
 - **Desktop/mobile**: Electron, React Native, Ionic
 - **Any JS/TS app** that makes blockchain transactions
 
-The server provides a single MCP tool (`integrate_divvi_referral_sdk`) that:
+The server currently provides an MCP tool (`integrate_divvi_referral_sdk`) that:
 
 1. **📖 Guides AI agents** to read the latest official Divvi SDK documentation
 2. **🔍 Instructs project analysis** to understand the target application structure
@@ -78,6 +78,7 @@ integrate_divvi_referral_sdk({
 - **Blockchain library agnostic**: Supports viem, ethers, wagmi, and other Web3 libraries
 - **Non-prescriptive**: Provides guidance while letting AI agents use their own capabilities intelligently
 - **Future-proof**: Instructions adapt as the Divvi SDK evolves
+- **Extensible**: Designed to support additional Divvi ecosystem tools and functionality
 
 > **Technical Note**: This integration is implemented as an MCP "tool" rather than a "prompt" type. While the MCP specification includes a prompt type that would be more semantically appropriate for this use case, we chose the tool implementation for broader compatibility, as Cursor doesn't currently support MCP prompts.
 
@@ -238,7 +239,9 @@ dist/                 # Compiled output
 
 ## API Reference
 
-### Tool: `integrate_divvi_referral_sdk`
+### Current Tools
+
+#### Tool: `integrate_divvi_referral_sdk`
 
 Provides instructions for integrating the @divvi/referral-sdk into a project.
 
@@ -257,6 +260,16 @@ Comprehensive integration instructions that guide AI agents through:
 - Analyzing project structure
 - Implementing the integration
 - Validating the result
+
+### Future Tools
+
+Additional tools for the Divvi ecosystem are planned for future releases. These may include:
+
+- **Data integration**: Helpers for tracking referral performance and metrics
+- **Protocol interaction**: Direct interaction with Divvi protocol contracts
+- **Campaign management**: Tools for creating and managing referral campaigns
+
+> Stay tuned for updates as we expand the server's capabilities!
 
 ## Related Projects
 
