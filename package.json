@@ -7,7 +7,7 @@
   "license": "Apache-2.0",
   "private": true,
   "engines": {
-    "node": "^20"
+    "node": "^22"
   },
   "scripts": {
     "build": "tsc",
@@ -22,8 +22,11 @@
     "test:ci": "yarn test --ci --coverage",
     "supercheck": "yarn format && yarn lint:fix && yarn typecheck && yarn knip && yarn test",
     "example": "ts-node ./scripts/example.ts",
-    "deploy": "echo 'Deployed!'",
+    "dev": "fastmcp dev src/index.ts",
     "knip": "knip"
+  },
+  "dependencies": {
+    "fastmcp": "^3.5.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
@@ -45,5 +48,6 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
-  "prettier": "@valora/prettier-config"
+  "prettier": "@valora/prettier-config",
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
