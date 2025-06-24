@@ -26,7 +26,7 @@ This tool returns instructions that guide the AI agent to read the latest docume
   execute: async (args) => {
     const instructions = `# Divvi Referral SDK Integration Task
 
-You need to integrate the @divvi/referral-sdk into a React/Next.js project to enable referral tracking.
+You need to integrate the @divvi/referral-sdk into this JavaScript/TypeScript blockchain application to enable referral tracking.
 
 ## Your Integration Parameters:
 - **Consumer Address**: \`${args.consumerAddress}\`
