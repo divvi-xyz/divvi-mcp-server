@@ -93,6 +93,10 @@ jobs:
           secrets: |-
             NPM_TOKEN:celo-mobile-mainnet/NPM_TOKEN
             SLACK_WEBHOOK_URL:celo-mobile-mainnet/SLACK_ONCALL_WEBHOOK_URL
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: 'package.json'
+          check-latest: true
       - run: yarn
       - name: Publish to NPM
         run: |
