@@ -17,10 +17,9 @@ This tool returns instructions that guide the AI agent to read the latest docume
   parameters: z.object({
     consumerAddress: z
       .string()
-      .describe('Your Divvi dapp wallet address (used to register on Divvi)'),
-    providers: z
-      .array(z.string())
-      .describe('Array of campaign addresses you signed up for'),
+      .describe(
+        'Your Divvi dapp wallet address (used to register as a builder on Divvi)',
+      ),
   }),
 
   execute: async (args) => {
@@ -30,7 +29,6 @@ You need to integrate the @divvi/referral-sdk into this JavaScript/TypeScript bl
 
 ## Your Integration Parameters:
 - **Consumer Address**: \`${args.consumerAddress}\`
-- **Provider Campaigns**: ${JSON.stringify(args.providers, null, 2)}
 
 ## Step 1: Read the Official Documentation
 **IMPORTANT**: First, read the complete documentation to understand the current integration patterns:
@@ -46,7 +44,7 @@ Focus on:
 
 ## Step 2: Analyze the Target Project
 Examine the project structure to understand:
-- Package manager (npm/yarn)
+- Package manager (npm/yarn/pnpm/bun)
 - JavaScript framework being used
 - Blockchain libraries present (viem, ethers, wagmi, etc.)
 - Existing transaction patterns in the codebase
@@ -55,7 +53,6 @@ Examine the project structure to understand:
 ## Step 3: Follow the Documentation
 Implement the integration exactly as described in the official documentation, using:
 - Your consumer address: \`${args.consumerAddress}\`
-- Your providers: ${JSON.stringify(args.providers)}
 - The project's existing patterns and conventions
 
 ## Step 4: Apply Integration Standards
@@ -72,10 +69,10 @@ Ensure the implementation follows these principles:
 ✅ All blockchain transactions include referral tracking
 ✅ Referral submission happens after transactions
 ✅ Error handling prevents integration from breaking main flows
-✅ Integration uses the provided consumer and provider addresses
+✅ Integration uses the provided consumer address
 ✅ Code follows project conventions and patterns
 
-**Remember**: The official documentation is the source of truth. Follow its patterns, examples, and recommendations exactly. Use the provided addresses in the integration as specified in the docs.`
+**Remember**: The official documentation is the source of truth. Follow its patterns, examples, and recommendations exactly. Use the provided consumer address in the integration as specified in the docs.`
 
     return instructions
   },

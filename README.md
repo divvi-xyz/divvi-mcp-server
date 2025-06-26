@@ -4,7 +4,7 @@ A Model Context Protocol (MCP) server that provides AI assistants with tools for
 
 ## Overview
 
-Divvi is an on-chain reward protocol that enables decentralized applications to implement referral systems with blockchain transaction attribution. This MCP server provides AI assistants with the capability to automatically integrate Divvi's referral tracking into existing dApps.
+Integrating referral tracking into blockchain applications typically requires understanding SDK documentation, modifying transaction flows, and maintaining integration code as protocols evolve. This MCP server eliminates that complexity by turning any AI assistant into a Divvi integration expert that can automatically implement referral tracking following current best practices.
 
 **Compatible with any JavaScript/TypeScript blockchain application**, including:
 
@@ -40,7 +40,7 @@ Your AI assistant will guide you through providing the necessary configuration (
 For more specific control, you can provide the exact parameters:
 
 ```
-"Integrate my dapp with Divvi using consumer address 0x1234... and provider campaigns [0x5678..., 0x9abc...]"
+"Integrate my dapp with Divvi using consumer address 0x1234..."
 ```
 
 The AI assistant will:
@@ -55,8 +55,7 @@ The AI assistant will:
 
 To complete the integration, you'll need:
 
-- **Consumer Address**: Your Divvi dapp wallet address (used to register on Divvi)
-- **Provider Campaigns**: Array of campaign addresses you've signed up for
+- **Consumer Address**: Your Divvi dapp wallet address (used to register as a builder on Divvi)
 
 ### Example Tool Call
 
@@ -64,10 +63,6 @@ To complete the integration, you'll need:
 // The AI assistant will call this internally
 integrate_divvi_referral_sdk({
   consumerAddress: '0x1234567890123456789012345678901234567890',
-  providers: [
-    '0x5678901234567890123456789012345678901234',
-    '0x9abcdef012345678901234567890123456789012',
-  ],
 })
 ```
 
@@ -247,10 +242,9 @@ Provides instructions for integrating the @divvi/referral-sdk into a project.
 
 #### Parameters
 
-| Parameter         | Type     | Required | Description                                   |
-| ----------------- | -------- | -------- | --------------------------------------------- |
-| `consumerAddress` | string   | Yes      | Your Divvi dapp wallet address                |
-| `providers`       | string[] | Yes      | Array of campaign addresses you signed up for |
+| Parameter         | Type   | Required | Description                                           |
+| ----------------- | ------ | -------- | ----------------------------------------------------- |
+| `consumerAddress` | string | Yes      | Your Divvi dapp wallet address (builder registration) |
 
 #### Returns
 
