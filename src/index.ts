@@ -78,6 +78,12 @@ Ensure the implementation follows these principles:
   },
 })
 
-server.start({
-  transportType: 'stdio',
-})
+server
+  .start({
+    transportType: 'stdio',
+  })
+  .catch((error) => {
+    // eslint-disable-next-line no-console
+    console.error(error)
+    process.exitCode = 1
+  })

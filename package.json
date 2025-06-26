@@ -27,7 +27,8 @@
     "knip": "knip"
   },
   "dependencies": {
-    "fastmcp": "^3.5.0"
+    "fastmcp": "^3.5.0",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
