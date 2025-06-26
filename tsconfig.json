@@ -7,6 +7,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "dist",
+    "rootDir": "src",
     "sourceMap": true,
     "strict": true,
     "target": "es2021",
