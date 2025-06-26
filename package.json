@@ -46,6 +46,7 @@
     "example": "ts-node ./scripts/example.ts",
     "dev": "fastmcp dev src/index.ts",
     "knip": "knip",
+    "prepare": "yarn build",
     "release": "semantic-release"
   },
   "dependencies": {
