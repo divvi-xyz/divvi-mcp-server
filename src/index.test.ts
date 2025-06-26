@@ -44,6 +44,12 @@ describe('MCP Server Integration', () => {
           resolve()
         }
       })
+
+      // Listen for stderr data
+      child.stderr!.on('data', (data: Buffer) => {
+        const output = data.toString()
+        receivedOutput += `[STDERR] ${output}`
+      })
     })
 
     try {
