@@ -84,7 +84,60 @@ integrate_divvi_referral_sdk({
 - Node.js 22+
 - An MCP-compatible AI assistant (Claude Desktop, Cursor, Copilot, etc.)
 
-### Setup
+### Quick Setup (Recommended)
+
+The easiest way to use the Divvi MCP server is via npm:
+
+#### Claude Desktop
+
+Add to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "divvi-mcp": {
+      "command": "npx",
+      "args": ["-y", "@divvi/mcp-server"],
+      "env": {}
+    }
+  }
+}
+```
+
+#### Cursor
+
+Cursor supports MCP servers through its settings. Add the server configuration:
+
+1. Open Cursor Settings (Cmd/Ctrl + ,)
+2. Navigate to "Features" → "Model Context Protocol"
+3. Add a new MCP server with:
+   - **Name**: `divvi-mcp`
+   - **Command**: `npx`
+   - **Args**: `["-y", "@divvi/mcp-server"]`
+
+Alternatively, if Cursor uses a configuration file, add:
+
+```json
+{
+  "mcpServers": {
+    "divvi-mcp": {
+      "command": "npx",
+      "args": ["-y", "@divvi/mcp-server"]
+    }
+  }
+}
+```
+
+#### Other MCP Clients
+
+Configure according to your MCP client's documentation, using:
+
+- **Command**: `npx`
+- **Args**: `["-y", "@divvi/mcp-server"]`
+
+### Local Development Setup
+
+For development or if you prefer building from source:
 
 1. **Clone the repository:**
 
@@ -100,57 +153,14 @@ integrate_divvi_referral_sdk({
    ```
 
 3. **Build the server:**
+
    ```bash
    yarn build
    ```
 
-### Configure your AI assistant
+4. **Configure your AI assistant** to point to the local build:
 
-Add the Divvi MCP server to your AI assistant's configuration:
-
-#### Claude Desktop
-
-Add to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "divvi-mcp": {
-      "command": "node",
-      "args": ["/path/to/divvi-mcp/dist/index.js"],
-      "env": {}
-    }
-  }
-}
-```
-
-#### Cursor
-
-Cursor supports MCP servers through its settings. Add the server configuration:
-
-1. Open Cursor Settings (Cmd/Ctrl + ,)
-2. Navigate to "Features" → "Model Context Protocol"
-3. Add a new MCP server with:
-   - **Name**: `divvi-mcp`
-   - **Command**: `node`
-   - **Args**: `["/path/to/divvi-mcp/dist/index.js"]`
-
-Alternatively, if Cursor uses a configuration file, add:
-
-```json
-{
-  "mcpServers": {
-    "divvi-mcp": {
-      "command": "node",
-      "args": ["/path/to/divvi-mcp/dist/index.js"]
-    }
-  }
-}
-```
-
-#### Other MCP Clients
-
-Configure according to your MCP client's documentation, pointing to the built server at `dist/index.js`.
+   Use `node` as the command and `["/path/to/divvi-mcp/dist/index.js"]` as the args in your MCP client configuration.
 
 ## How It Works
 
