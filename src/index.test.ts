@@ -4,7 +4,7 @@ describe('MCP Server Integration', () => {
   it('should start the server and confirm it is ready', async () => {
     const command = 'yarn dev'
 
-    let child: any
+    let child: ReturnType<typeof exec> | undefined
 
     const serverStartupPromise = new Promise<void>((resolve, reject) => {
       let serverReady = false
@@ -51,7 +51,7 @@ describe('MCP Server Integration', () => {
     } finally {
       // Always clean up the child process
       if (child) {
-        child.kill()
+        child.kill('SIGKILL')
       }
     }
   }, 15000) // Increase default timeout since we're starting a server
