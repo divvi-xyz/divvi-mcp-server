@@ -57,6 +57,9 @@ describe('MCP Server Integration', () => {
     } finally {
       // Always clean up the child process
       if (child) {
+        // calling destroy() so it doesn't prevent jest from exiting
+        child.stdout?.destroy()
+        child.stderr?.destroy()
         child.kill('SIGKILL')
       }
     }
