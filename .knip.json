@@ -4,7 +4,8 @@
   "ignoreDependencies": [
     "@types/jest",
     "semantic-release",
-    "conventional-changelog-conventionalcommits"
+    "conventional-changelog-conventionalcommits",
+    "@wong2/mcp-cli"
   ],
   "ignoreBinaries": ["release"]
 }
