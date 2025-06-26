@@ -1,12 +1,30 @@
 {
-  "name": "divvi-mcp",
-  "version": "0.0.1",
+  "name": "@divvi/mcp-server",
+  "version": "0.0.0-semantic-release",
   "description": "A Model Context Protocol (MCP) server that enables AI assistants to automatically integrate the @divvi/referral-sdk into JavaScript/TypeScript blockchain applications.",
   "main": "dist/index.js",
-  "repository": "git@github.com:divvi-xyz/divvi-mcp.git",
+  "repository": "git@github.com:divvi-xyz/divvi-mcp-server.git",
   "author": "Valora Inc",
   "license": "Apache-2.0",
-  "private": true,
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "ai",
+    "assistant",
+    "claude",
+    "anthropic",
+    "cursor",
+    "copilot",
+    "blockchain",
+    "web3",
+    "referral",
+    "divvi",
+    "javascript",
+    "typescript",
+    "sdk",
+    "integration"
+  ],
   "engines": {
     "node": "^22"
   },
@@ -24,7 +42,8 @@
     "supercheck": "yarn format && yarn lint:fix && yarn typecheck && yarn knip && yarn test",
     "example": "ts-node ./scripts/example.ts",
     "dev": "fastmcp dev src/index.ts",
-    "knip": "knip"
+    "knip": "knip",
+    "release": "semantic-release"
   },
   "dependencies": {
     "fastmcp": "^3.5.0",
@@ -36,6 +55,8 @@
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@valora/eslint-config-typescript": "^1.0.2",
     "@valora/prettier-config": "^0.0.1",
+    "@wong2/mcp-cli": "^1.10.0",
+    "conventional-changelog-conventionalcommits": "^9.0.0",
     "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jest": "^27.9.0",
@@ -45,11 +66,22 @@
     "jest": "^30.0.0",
     "knip": "^5.2.2",
     "prettier": "^3.5.3",
+    "semantic-release": "^24.2.5",
     "shelljs": "^0.8.5",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "prettier": "@valora/prettier-config",
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "preset": "conventionalcommits"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

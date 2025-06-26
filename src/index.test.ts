@@ -4,7 +4,7 @@ describe('MCP Server Integration', () => {
   it('should start the server and confirm it is ready', async () => {
     const command = 'yarn dev'
 
-    let child: any
+    let child: ReturnType<typeof exec> | undefined
 
     const serverStartupPromise = new Promise<void>((resolve, reject) => {
       let serverReady = false
@@ -44,6 +44,12 @@ describe('MCP Server Integration', () => {
           resolve()
         }
       })
+
+      // Listen for stderr data
+      child.stderr!.on('data', (data: Buffer) => {
+        const output = data.toString()
+        receivedOutput += `[STDERR] ${output}`
+      })
     })
 
     try {
@@ -51,7 +57,10 @@ describe('MCP Server Integration', () => {
     } finally {
       // Always clean up the child process
       if (child) {
-        child.kill()
+        // calling destroy() so it doesn't prevent jest from exiting
+        child.stdout?.destroy()
+        child.stderr?.destroy()
+        child.kill('SIGKILL')
       }
     }
   }, 15000) // Increase default timeout since we're starting a server

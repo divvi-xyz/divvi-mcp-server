@@ -1,5 +1,9 @@
 {
   "entry": ["src/index.ts"],
   "project": ["src/**/*.ts"],
-  "ignoreDependencies": ["@types/jest", "@valora/prettier-config"]
+  "ignoreDependencies": [
+    "@types/jest",
+    "conventional-changelog-conventionalcommits",
+    "@wong2/mcp-cli"
+  ]
 }

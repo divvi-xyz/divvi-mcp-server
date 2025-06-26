@@ -48,6 +48,7 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -62,37 +63,57 @@ jobs:
       #     path: coverage/lcov-report
       # - name: 'Upload coverage to Codecov'
       #   uses: codecov/codecov-action@v3
-  deploy:
-    name: Deploy
-    if: github.ref == 'refs/heads/main'
+  publish:
+    name: ${{ github.ref == 'refs/heads/main' && 'Publish' || 'Publish (dry-run)' }}
+    # Only run if the test workflow succeeded or it's a PR (where we don't want to delay the dry run)
+    if: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/main' }}
     needs:
-      - lint
-      - knip
       - test
+      - knip
+      - lint
+      - check-for-sh
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          # Full git history is needed for release notes
+          fetch-depth: 0
+      - id: auth
+        uses: google-github-actions/auth@ba79af03959ebeac9769e648f473a284504d9193 # v2.1.10
+        with:
+          credentials_json: ${{ secrets.MAINNET_SERVICE_ACCOUNT_KEY }}
+      - id: google-secrets
+        uses: google-github-actions/get-secretmanager-secrets@a8440875e1c2892062aef9061228d4f1af8f919b # v2.2.3
+        with:
+          secrets: |-
+            NPM_TOKEN:celo-mobile-mainnet/NPM_TOKEN
+            SLACK_WEBHOOK_URL:celo-mobile-mainnet/SLACK_ONCALL_WEBHOOK_URL
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version-file: 'package.json'
           check-latest: true
-      # Repo needs to be given access to the MAINNET_SERVICE_ACCOUNT_KEY secret to access the slack webhook
-      # https://github.com/organizations/valora-inc/settings/secrets/actions/MAINNET_SERVICE_ACCOUNT_KEY
-      - uses: google-github-actions/auth@ba79af03959ebeac9769e648f473a284504d9193 # v2.1.10
-        with:
-          project_id: celo-mobile-mainnet
-          credentials_json: ${{ secrets.MAINNET_SERVICE_ACCOUNT_KEY }}
-      - name: Fetch Secrets
-        id: slack-webhook
-        uses: google-github-actions/get-secretmanager-secrets@a8440875e1c2892062aef9061228d4f1af8f919b # v2.2.3
-        with:
-          # This can point to any slack webhook URL stored in GC Secret Manager
-          secrets: |-
-            SLACK_WEBHOOK_URL:projects/1027349420744/secrets/SLACK_ONCALL_WEBHOOK_URL
       - run: yarn
-      - run: yarn deploy
+      - name: Publish to NPM
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            yarn release
+          else
+            # Dry run to ensure it still works in case of deps changes
+            # Note: we adjust the env a bit so it doesn't abort early with
+            # "This run was triggered by a pull request and therefore a new version won't be published."
+            # We're in dry run anyway.
+            GITHUB_REF="$GITHUB_HEAD_REF" yarn release --dry-run --no-ci --branches "$GITHUB_HEAD_REF"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ steps.google-secrets.outputs.NPM_TOKEN }}
       - uses: ravsamhq/notify-slack-action@be814b201e233b2dc673608aa46e5447c8ab13f2 # 2.5.0
-        if: always()
+        if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
         with:
           status: ${{ job.status }}
           notification_title: '{workflow} has {status_message}'
@@ -103,4 +124,4 @@ jobs:
           mention_groups: 'S0277QUM4KB'
           mention_groups_when: 'failure'
         env:
-          SLACK_WEBHOOK_URL: ${{ steps.slack-webhook.outputs.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ steps.google-secrets.outputs.SLACK_WEBHOOK_URL }}
