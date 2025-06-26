@@ -1,9 +1,10 @@
 import { FastMCP } from 'fastmcp'
 import { z } from 'zod'
+import packageJson from '../package.json'
 
 const server = new FastMCP({
   name: 'Divvi MCP Server',
-  version: '1.0.0',
+  version: packageJson.version as `${number}.${number}.${number}`,
 })
 
 server.addTool({

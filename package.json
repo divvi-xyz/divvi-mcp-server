@@ -28,6 +28,9 @@
   "engines": {
     "node": "^22"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "build:scripts": "tsc --project scripts/tsconfig.json",
