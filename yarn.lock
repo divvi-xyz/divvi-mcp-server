@@ -706,10 +706,10 @@
   resolved "https://registry.yarnpkg.com/@json-schema-tools/traverse/-/traverse-1.11.0.tgz#3dbd42d60c7e7e6d7b5d41fb334e6a574f77b045"
   integrity sha512-GWQRiXXsbt5ZuewItpW2nqB/D0x4pKWi6XXOwoh1wvmsU/tQSq/rKzpgGvOHTe6v30TYDwZYxuwnRnArIsUzLQ==
 
-"@modelcontextprotocol/sdk@^1.13.2", "@modelcontextprotocol/sdk@^1.15.1":
-  version "1.17.1"
-  resolved "https://registry.yarnpkg.com/@modelcontextprotocol/sdk/-/sdk-1.17.1.tgz#a3628ae2ca0b4a2e6088202b5ee417d884a88537"
-  integrity sha512-CPle1OQehbWqd25La9Ack5B07StKIxh4+Bf19qnpZKJC1oI22Y0czZHbifjw1UoczIfKBwBDAp/dFxvHG13B5A==
+"@modelcontextprotocol/sdk@^1.15.1", "@modelcontextprotocol/sdk@^1.17.2":
+  version "1.17.2"
+  resolved "https://registry.yarnpkg.com/@modelcontextprotocol/sdk/-/sdk-1.17.2.tgz#232d079c374bef18d0b411e5d8c7e6c5f24e8684"
+  integrity sha512-EFLRNXR/ixpXQWu6/3Cu30ndDFIFNaqUXcTqsGebujeMan9FzhAaFFswLRiFj61rgygDRr8WO1N+UijjgRxX9g==
   dependencies:
     ajv "^6.12.6"
     content-type "^1.0.5"
@@ -3472,21 +3472,21 @@ fastest-levenshtein@^1.0.16:
   resolved "https://registry.yarnpkg.com/fastest-levenshtein/-/fastest-levenshtein-1.0.16.tgz#210e61b6ff181de91ea9b3d1b84fdedd47e034e5"
   integrity sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==
 
-fastmcp@^3.13.0:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/fastmcp/-/fastmcp-3.13.0.tgz#f7e0aaa839e035172831a481ebe209f21b836d58"
-  integrity sha512-ItstvC1uipz1hop/S3JfOERH0biHPjDEDBb3369QJ2s/ejxWKxgXroTqScAldxR3T2AcvpOWE6i9VkRhq8jT8w==
+fastmcp@^3.14.1:
+  version "3.14.4"
+  resolved "https://registry.yarnpkg.com/fastmcp/-/fastmcp-3.14.4.tgz#a652c75ac465bd8ce75c18460a2ecb47e34fa9f2"
+  integrity sha512-+TaOZ80XsoFAyycx4tLRNkMlFJfzid7mRk82GhNQ5dLD0n8pEA/vrgM88ENWuXYIwp8AsPasw60ibbx29WhLMQ==
   dependencies:
-    "@modelcontextprotocol/sdk" "^1.15.1"
+    "@modelcontextprotocol/sdk" "^1.17.2"
     "@standard-schema/spec" "^1.0.0"
     execa "^9.6.0"
     file-type "^21.0.0"
     fuse.js "^7.1.0"
-    mcp-proxy "^5.5.0"
+    mcp-proxy "^5.5.4"
     strict-event-emitter-types "^2.0.0"
-    undici "^7.11.0"
+    undici "^7.13.0"
     uri-templates "^0.2.0"
-    xsschema "0.3.0-beta.8"
+    xsschema "0.3.5"
     yargs "^18.0.0"
     zod "^3.25.76"
     zod-to-json-schema "^3.24.6"
@@ -5404,12 +5404,12 @@ math-intrinsics@^1.1.0:
   resolved "https://registry.yarnpkg.com/math-intrinsics/-/math-intrinsics-1.1.0.tgz#a0dd74be81e2aa5c2f27e65ce283605ee4e2b7f9"
   integrity sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==
 
-mcp-proxy@^5.5.0:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/mcp-proxy/-/mcp-proxy-5.5.0.tgz#5728ec6d8b61adae1252cc831ae434d9409e9e17"
-  integrity sha512-B0dPjnU0LBzX2tKc54c1nxsYPf/QOv5Dom6KElOI7LN2DIWdVNTZAw/AnhDmyfyn61NLZ1H5AM7mNPLWeTXlLA==
+mcp-proxy@^5.5.4:
+  version "5.5.4"
+  resolved "https://registry.yarnpkg.com/mcp-proxy/-/mcp-proxy-5.5.4.tgz#1fbf238774cb7d9e186ee7792d652e130d358cb0"
+  integrity sha512-+J1FNSTfnonpq0BL+fdxSY41mP3qrk0pBHTRq20VSv1nRY0IyH6RM/tGp40k1GOZfRnmxygwbSYTBZqbjI1ehg==
   dependencies:
-    "@modelcontextprotocol/sdk" "^1.13.2"
+    "@modelcontextprotocol/sdk" "^1.17.2"
     eventsource "^4.0.0"
     yargs "^18.0.0"
 
@@ -7702,7 +7702,7 @@ unbox-primitive@^1.0.2:
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
 
-undici@^7.11.0:
+undici@^7.13.0:
   version "7.13.0"
   resolved "https://registry.yarnpkg.com/undici/-/undici-7.13.0.tgz#9331f99fc42970dcbdf54199e6604755ba54433a"
   integrity sha512-l+zSMssRqrzDcb3fjMkjjLGmuiiK2pMIcV++mJaAc9vhjSGpvM7h43QgP+OAMb1GImHmbPyG2tBXeuyG5iY4gA==
@@ -8009,10 +8009,10 @@ write-file-atomic@^6.0.0:
     imurmurhash "^0.1.4"
     signal-exit "^4.0.1"
 
-xsschema@0.3.0-beta.8:
-  version "0.3.0-beta.8"
-  resolved "https://registry.yarnpkg.com/xsschema/-/xsschema-0.3.0-beta.8.tgz#ca7a1ca8c3ebca44bc44b84eec8d7f5192c728d1"
-  integrity sha512-gMNX9pyTRWMlv2N2BeFfMg0mhLbd4UM0JseCtRri5Y1KXY67kmvnfQGdY90AmmaLbxva2OWfpGHt1e9/d9NY1Q==
+xsschema@0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/xsschema/-/xsschema-0.3.5.tgz#40ceedcfba32b1de872fca88b5ddd7665de2f7d5"
+  integrity sha512-f+dcy11dTv7aBEEfTbXWnrm/1b/Ds2k4taN0TpN6KCtPAD58kyE/R1znUdrHdBnhIFexj9k+pS1fm6FgtSISrQ==
 
 xtend@~4.0.1:
   version "4.0.2"
