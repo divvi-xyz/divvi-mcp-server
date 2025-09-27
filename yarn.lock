@@ -3487,10 +3487,10 @@ fastest-levenshtein@^1.0.16:
   resolved "https://registry.yarnpkg.com/fastest-levenshtein/-/fastest-levenshtein-1.0.16.tgz#210e61b6ff181de91ea9b3d1b84fdedd47e034e5"
   integrity sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==
 
-fastmcp@^3.17.0:
-  version "3.17.0"
-  resolved "https://registry.yarnpkg.com/fastmcp/-/fastmcp-3.17.0.tgz#5b6259e3cbd421a5fbb0ed2d0834b486b9b70b7c"
-  integrity sha512-mNSPP/oG0qXFkPMA5TFXde8Zg5IjBvZE6QP/TMqcMpYYLTRJX1UJGDG7WyCKaPDF8JtgTWJigi1Osqo5rri+6A==
+fastmcp@^3.18.0:
+  version "3.18.0"
+  resolved "https://registry.yarnpkg.com/fastmcp/-/fastmcp-3.18.0.tgz#d0cf9f5d12a862adc8c0e4ca335ad2946a3df0d2"
+  integrity sha512-Td8+QMHmA8WeLTczlMIvV+/Xvk164d/047Hku3kwExuwm3tgMTrwmTI10euP04lNE5WCFZ1xdF9XISnMxeJ3yw==
   dependencies:
     "@modelcontextprotocol/sdk" "^1.17.2"
     "@standard-schema/spec" "^1.0.0"
