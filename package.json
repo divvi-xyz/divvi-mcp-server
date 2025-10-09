@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "fastmcp": "^3.19.0",
-    "zod": "^4.1.11"
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
