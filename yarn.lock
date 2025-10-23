@@ -3478,21 +3478,21 @@ fastest-levenshtein@^1.0.16:
   resolved "https://registry.yarnpkg.com/fastest-levenshtein/-/fastest-levenshtein-1.0.16.tgz#210e61b6ff181de91ea9b3d1b84fdedd47e034e5"
   integrity sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==
 
-fastmcp@^3.19.1:
-  version "3.19.1"
-  resolved "https://registry.yarnpkg.com/fastmcp/-/fastmcp-3.19.1.tgz#04628b9c4c43908a2dc88b3f029e02066ad2a1de"
-  integrity sha512-XiEFTW26i5lDStmWOCVhDx8v2jQfQvtd6KC4PHuRg9z5eoo8rP9YUt1yuzgPD4BByNTeksZnxGtXttr+GQK23Q==
+fastmcp@^3.20.2:
+  version "3.21.0"
+  resolved "https://registry.yarnpkg.com/fastmcp/-/fastmcp-3.21.0.tgz#ea49561ee3e7982ce88cb0da25986e63025f80cc"
+  integrity sha512-8WnWrr3MMo27Xxll90XpHmfJ4MtQfjTAFt8HkH5d2D1FJnjcsLOi8ymoCb+SfB5kx98vEilwtpkbhq1N0DXCqA==
   dependencies:
     "@modelcontextprotocol/sdk" "^1.17.2"
     "@standard-schema/spec" "^1.0.0"
     execa "^9.6.0"
     file-type "^21.0.0"
     fuse.js "^7.1.0"
-    mcp-proxy "^5.8.0"
+    mcp-proxy "^5.8.1"
     strict-event-emitter-types "^2.0.0"
     undici "^7.13.0"
     uri-templates "^0.2.0"
-    xsschema "0.3.5"
+    xsschema "0.4.0-beta.5"
     yargs "^18.0.0"
     zod "^3.25.76"
     zod-to-json-schema "^3.24.6"
@@ -5432,10 +5432,10 @@ math-intrinsics@^1.1.0:
   resolved "https://registry.yarnpkg.com/math-intrinsics/-/math-intrinsics-1.1.0.tgz#a0dd74be81e2aa5c2f27e65ce283605ee4e2b7f9"
   integrity sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==
 
-mcp-proxy@^5.8.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/mcp-proxy/-/mcp-proxy-5.8.0.tgz#b83ef24a3809ce198eb4c2b61b68613ca6df7aaf"
-  integrity sha512-qNdLNQzpFGj80UXu473Z7ZwZqRYMG6bvf64Wnmqqiaz8SU0GHaVD7U9odW++xYLSEI6EEZNl7SH3Vjw5NEdLXw==
+mcp-proxy@^5.8.1:
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/mcp-proxy/-/mcp-proxy-5.9.0.tgz#b7d58ff1b23dc12db71f7a5f1faa9395927d6190"
+  integrity sha512-xonJSkuy4wmwXeykBFl0mjRMt4D0pAGCtFIfBFUz4O80VrO92ruJseIdASJO3wN6MdYHi3vbZLOQol3NsUpg4g==
 
 media-typer@^1.1.0:
   version "1.1.0"
@@ -8080,10 +8080,10 @@ write-file-atomic@^6.0.0:
     imurmurhash "^0.1.4"
     signal-exit "^4.0.1"
 
-xsschema@0.3.5:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/xsschema/-/xsschema-0.3.5.tgz#40ceedcfba32b1de872fca88b5ddd7665de2f7d5"
-  integrity sha512-f+dcy11dTv7aBEEfTbXWnrm/1b/Ds2k4taN0TpN6KCtPAD58kyE/R1znUdrHdBnhIFexj9k+pS1fm6FgtSISrQ==
+xsschema@0.4.0-beta.5:
+  version "0.4.0-beta.5"
+  resolved "https://registry.yarnpkg.com/xsschema/-/xsschema-0.4.0-beta.5.tgz#91f3fe2206b8847242bb9033edbedc0d20bd4dbe"
+  integrity sha512-73pYwf1hMy++7SnOkghJdgdPaGi+Y5I0SaO6rIlxb1ouV6tEyDbEcXP82kyr32KQVTlUbFj6qewi9eUVEiXm+g==
 
 xtend@~4.0.1:
   version "4.0.2"
