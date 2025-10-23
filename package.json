@@ -57,7 +57,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
+    "@types/jest": "^30.0.0",
     "@types/shelljs": "^0.8.17",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@valora/eslint-config-typescript": "^1.1.43",
