@@ -53,7 +53,7 @@
     "release": "semantic-release"
   },
   "dependencies": {
-    "fastmcp": "^3.22.0",
+    "fastmcp": "^3.23.0",
     "zod": "^4.1.12"
   },
   "devDependencies": {
