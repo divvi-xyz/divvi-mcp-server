@@ -3494,17 +3494,17 @@ fastest-levenshtein@^1.0.16:
   resolved "https://registry.yarnpkg.com/fastest-levenshtein/-/fastest-levenshtein-1.0.16.tgz#210e61b6ff181de91ea9b3d1b84fdedd47e034e5"
   integrity sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==
 
-fastmcp@^3.22.0:
-  version "3.22.0"
-  resolved "https://registry.yarnpkg.com/fastmcp/-/fastmcp-3.22.0.tgz#a24cc4cc3745ab7c45864c33c80ce8c3dd41e411"
-  integrity sha512-sRFwRK6+j3KT7Jj4PTUJXzbHoGsE2KrZqheTy9zK/cfPvkP1J1Vhne9WVrpNAVUAe+iiXjvlP9gabqEhKisOYg==
+fastmcp@^3.23.0:
+  version "3.23.0"
+  resolved "https://registry.yarnpkg.com/fastmcp/-/fastmcp-3.23.0.tgz#6a3d21f0ed849e43f1be8e349f2e42c59b711266"
+  integrity sha512-zojzKe0sgW5V8U6NVTLSd9DdSpFGvkpo6G/42n2qw7MFHqi46c4ZpQQ46m1JWnGM1/Uw+Cu7OeJRGe3/7P4k4g==
   dependencies:
     "@modelcontextprotocol/sdk" "^1.17.2"
     "@standard-schema/spec" "^1.0.0"
     execa "^9.6.0"
     file-type "^21.0.0"
     fuse.js "^7.1.0"
-    mcp-proxy "^5.8.1"
+    mcp-proxy "^5.10.0"
     strict-event-emitter-types "^2.0.0"
     undici "^7.13.0"
     uri-templates "^0.2.0"
@@ -5388,10 +5388,10 @@ math-intrinsics@^1.1.0:
   resolved "https://registry.yarnpkg.com/math-intrinsics/-/math-intrinsics-1.1.0.tgz#a0dd74be81e2aa5c2f27e65ce283605ee4e2b7f9"
   integrity sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==
 
-mcp-proxy@^5.8.1:
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/mcp-proxy/-/mcp-proxy-5.9.0.tgz#b7d58ff1b23dc12db71f7a5f1faa9395927d6190"
-  integrity sha512-xonJSkuy4wmwXeykBFl0mjRMt4D0pAGCtFIfBFUz4O80VrO92ruJseIdASJO3wN6MdYHi3vbZLOQol3NsUpg4g==
+mcp-proxy@^5.10.0:
+  version "5.11.0"
+  resolved "https://registry.yarnpkg.com/mcp-proxy/-/mcp-proxy-5.11.0.tgz#398ca6f0b7b0668e02173c890befb36e9127290d"
+  integrity sha512-g+MfBENT5PtbxwTKaUnb2dSIGSbMBY3chFPenjzoSib66o+yZL0llV0a7i+8+8aqWI3JlyUziB+Ryrb1IX0rKQ==
 
 media-typer@^1.1.0:
   version "1.1.0"
